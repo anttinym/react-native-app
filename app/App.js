@@ -1,21 +1,19 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import colors from './constants/colors'
+import { SafeAreaView, Text, StyleSheet } from 'react-native'
+
+import CardList from './components/CardList'
+import cardData from './fixtures/cardData.json'
 
 const App = () => (
-  <View style={styles.container}>
-    <Text>Open up App.js to start working on your app!</Text>
-    <Text>Changes you make will automatically reload.</Text>
-    <Text>Shake your phone to open the developer menu.</Text>
-  </View>
+  <SafeAreaView style={styles.appContainer}>
+    <Text>Hello</Text>
+    <CardList cards={cardData} />
+  </SafeAreaView>
 )
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.white,
-    alignItems: 'center',
-    justifyContent: 'center'
+  appContainer: {
+    flex: 1
   }
 })
 
