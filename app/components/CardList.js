@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FlatList } from 'react-native'
+import { FlatList, StyleSheet } from 'react-native'
 
 import CardListItem from './CardListItem'
 
@@ -10,10 +10,12 @@ const CardList = (props) => {
   console.log(props)
   return (
     <FlatList
+      style={styles.container}
       data={cards}
       renderItem={({ item }) => (
         <CardListItem
           name={item.name}
+          type={item.type}
           imageUrl={item.imageUrl}
         />
       )}
@@ -21,6 +23,12 @@ const CardList = (props) => {
     />
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 20
+  }
+})
 
 CardList.defaultProps = {
   cards: [{ name: 'name' }]
