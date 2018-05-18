@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FlatList, StyleSheet, RefreshControl } from 'react-native'
+import {
+  FlatList,
+  StyleSheet,
+  RefreshControl
+} from 'react-native'
 
 import CardListItem from './CardListItem'
 

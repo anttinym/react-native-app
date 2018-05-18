@@ -20,7 +20,8 @@ class CardsScreen extends React.Component {
     this.setState({ isLoading: true })
     getCards()
       .then((cards) => {
-        const shuffled = cards.cards.sort(() => 0.5 - Math.random())
+        const shuffled = cards.cards.sort(() =>
+          0.5 - Math.random())
         const selected = shuffled.slice(0, 10)
         return Promise.all(selected)
       })
