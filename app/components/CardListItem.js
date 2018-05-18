@@ -14,10 +14,12 @@ const CardListItem = (props) => {
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.text}>{type}</Text>
       </View>
-      <Image
-        style={styles.image}
-        source={{ uri: imageUrl }}
-      />
+      <View style={styles.imageCont}>
+        <Image
+          style={styles.image}
+          source={{ uri: imageUrl }}
+        />
+      </View>
       <Text style={styles.text}>{text}</Text>
     </View>
   )
@@ -25,8 +27,9 @@ const CardListItem = (props) => {
 
 const styles = StyleSheet.create({
   item: {
-    borderColor: colors.black,
-    // borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.grey,
+    backgroundColor: colors.background,
+    borderRadius: 2,
     borderWidth: 1,
     marginBottom: 20,
     padding: 15,
@@ -37,14 +40,23 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   name: {
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   text: {
-    fontSize: 12
+    fontSize: 14,
+    padding: 5
+  },
+  imageCont: {
+    shadowOpacity: 0.75,
+    shadowRadius: 5,
+    shadowColor: colors.black,
+    shadowOffset: { height: 0, width: 0 }
   },
   image: {
-    width: 250,
+    width: 350,
     height: 350,
+    resizeMode: 'contain',
     marginBottom: 10
   }
 })

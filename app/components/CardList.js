@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FlatList, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet, RefreshControl } from 'react-native'
 
 import CardListItem from './CardListItem'
 
 
 const CardList = (props) => {
-  const { cards } = props
-  console.log(props.cards)
+  const { cards, isLoading, onLoad } = props
   return (
     <FlatList
       style={styles.container}
@@ -21,6 +20,12 @@ const CardList = (props) => {
         />
       )}
       keyExtractor={card => `${card.id}`}
+      refreshControl={
+        <RefreshControl
+          refreshing={isLoading}
+          onRefresh={onLoad}
+        />
+      }
     />
   )
 }
@@ -36,7 +41,9 @@ CardList.defaultProps = {
 }
 
 CardList.propTypes = {
-  cards: PropTypes.arrayOf(PropTypes.shape({}))
+  cards: PropTypes.arrayOf(PropTypes.shape({})),
+  isLoading: PropTypes.bool.isRequired,
+  onLoad: PropTypes.func.isRequired
 }
 
 export default CardList
