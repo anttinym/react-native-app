@@ -1,14 +1,21 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
-import CardList from './components/CardList'
+// import AppNavigator from './navigators/AppNavigator'
 import cardData from './fixtures/cardData.json'
+import CardList from './components/CardList'
 
 const App = () => (
-  <SafeAreaView style={styles.appContainer}>
-    <CardList cards={cardData} />
-  </SafeAreaView>
+  <View style={styles.appContainer}>
+    <CardList cards={cardData.cards} />
+  </View>
 )
+
+/* const App = () => (
+  <View style={styles.appContainer}>
+    <AppNavigator />
+  </View>
+) */
 
 const styles = StyleSheet.create({
   appContainer: {

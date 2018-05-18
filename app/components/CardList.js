@@ -7,7 +7,7 @@ import CardListItem from './CardListItem'
 
 const CardList = (props) => {
   const { cards } = props
-  console.log(props)
+  console.log(props.cards)
   return (
     <FlatList
       style={styles.container}
@@ -17,6 +17,7 @@ const CardList = (props) => {
           name={item.name}
           type={item.type}
           imageUrl={item.imageUrl}
+          text={item.text}
         />
       )}
       keyExtractor={card => `${card.id}`}
